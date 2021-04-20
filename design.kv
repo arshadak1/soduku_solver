@@ -1,0 +1,7 @@
+#:import TextInput kivy.uix.textinput.TextInput
+
+GridLayout:
+    cols: 9
+    rows: 10
+    on_parent:
+        [self.add_widget(TextInput(multiline=False)) for i in range(41)]
