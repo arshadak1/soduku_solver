@@ -2,7 +2,7 @@ from kivy.uix.button import Button
 from kivy.uix.textinput import TextInput
 from kivy.uix.gridlayout import GridLayout
 from kivy.app import App
-import soduku_solve
+import sudoku_solve
 from kivy.uix.popup import Popup
 from kivy.uix.label import Label
 
@@ -60,7 +60,7 @@ class MyGridLayout(GridLayout):
             sum_ += sum(board[i])
         if sum_ == 0:
             return
-        if soduku_solve.solve(board):
+        if sudoku_solve.solve(board):
             for i in self.box_ids:
                 self.id_x[i].text = str(board[int(i[0])][int(i[1])])
         else:
@@ -71,11 +71,11 @@ class MyGridLayout(GridLayout):
             popup.open()
 
 
-class SodukuApp(App):
+class SudokuApp(App):
 
     def build(self):
         return MyGridLayout()
 
 
 if __name__ == "__main__":
-    SodukuApp().run()
+    SudokuApp().run()
